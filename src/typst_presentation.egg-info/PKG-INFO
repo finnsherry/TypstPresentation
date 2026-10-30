@@ -1,0 +1,37 @@
+Metadata-Version: 2.4
+Name: typst-presentation
+Version: 0.1.0
+Summary: Compile Touying presentations to HTML, with GIFs replaced by MP4 videos.
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: touying
+
+# typst-presentation
+
+Compile [Touying](https://touying-typ.github.io/) presentations to HTML, with
+GIFs replaced by MP4 videos (much smaller, smoother playback).
+
+The touying exporter renders each slide to SVG with the GIFs embedded as-is.
+After compiling, every embedded GIF is matched to its source file by hash and
+replaced by an autoplaying, looping, muted `<video>` of the MP4 next to it.
+MP4s are created with ffmpeg when missing or older than the GIF. The Typst
+source keeps using the GIFs, so PDF export is unaffected.
+
+## Install
+
+Requires `ffmpeg` on the `PATH`.
+
+```
+pip install -e path/to/typst-presentation
+```
+
+## Usage
+
+```
+presentation compile main.typ                      # writes main.html, videos embedded
+presentation compile main.typ --external           # link to the .mp4 files instead
+presentation compile main.typ --font-paths ~/fonts
+```
+
+GIFs are searched for recursively under `--root`, which defaults to the
+directory of the input file.
