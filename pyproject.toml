@@ -6,6 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "typst-presentation"
 version = "0.1.0"
 description = "Compile Touying presentations to HTML, with GIFs replaced by MP4 videos."
+authors = [{ name = "Finn Sherry" }]
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = ["touying"]

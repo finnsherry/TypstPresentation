@@ -27,3 +27,6 @@ presentation compile main.typ --font-paths ~/fonts
 
 GIFs are searched for recursively under `--root`, which defaults to the
 directory of the input file.
+
+When using `--external`, the .mp4 files must be packaged with the presentation,
+with the same relative location as during compilation.
