@@ -25,6 +25,13 @@ presentation compile main.typ --external           # link to the .mp4 files inst
 presentation compile main.typ --font-paths ~/fonts
 ```
 
+Font directories can also be set once in your shell profile, as for the typst
+CLI; these are used in addition to any `--font-paths`:
+
+```
+export TYPST_FONT_PATHS=~/fonts            # multiple: separate with ':'
+```
+
 GIFs are searched for recursively under `--root`, which defaults to the
 directory of the input file.
 

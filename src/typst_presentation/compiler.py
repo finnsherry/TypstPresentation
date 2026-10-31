@@ -67,8 +67,12 @@ def compile_html(
     """Compile `input` to HTML, replacing GIFs found under `root` by videos.
 
     `root` defaults to the directory of `input`. With `external`, the MP4s are
-    referenced by relative path instead of embedded in the HTML.
+    referenced by relative path instead of embedded in the HTML. Font paths in
+    the TYPST_FONT_PATHS environment variable (separated by `os.pathsep`, as
+    for the typst CLI) are used in addition to `font_paths`.
     """
+    env_font_paths = os.environ.get("TYPST_FONT_PATHS", "")
+    font_paths = list(font_paths) + [p for p in env_font_paths.split(os.pathsep) if p]
     input = Path(input)
     output = Path(output) if output is not None else input.with_suffix(".html")
     search_dir = Path(root) if root is not None else input.parent

@@ -24,7 +24,10 @@ def main():
         "(default: directory of the input file)",
     )
     parser_compile.add_argument(
-        "--font-paths", nargs="*", default=[], help="Paths to custom fonts"
+        "--font-paths",
+        nargs="*",
+        default=[],
+        help="Paths to custom fonts, in addition to those in $TYPST_FONT_PATHS",
     )
     parser_compile.add_argument(
         "--external",
